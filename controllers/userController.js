@@ -22,7 +22,7 @@ const signin = asynchandler(async (req, res) => {
             res.status(200).send(true)
         }
         else {
-            res.status(400).json({ error: "Wrong password" })
+            res.status(400).send(false)
         }
     }
     catch(err){
@@ -46,7 +46,7 @@ const signup = asynchandler(async (req, res) => {
     })
 
     await User.create(newUser).then(() => {
-        res.status(200).json({message : "User Successfully Created"})
+        res.status(200).send(true)
     }).catch((err) => {
         console.log(err)
     });
