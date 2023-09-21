@@ -6,22 +6,18 @@ const signin = asynchandler(async (req, res) => {
     const usermodel = req.body
     const email = usermodel.email
 
-    if(!email){
-        res.send(false)
-    }
-
     try {
         
         const user = await User.findOne({ email: email })
         if (!user) {
-            res.send(false)
+            res.status(400).send(false)
         }
         const password = user.password
-        if (usermodel.password == password) {
-            res.send(true)
+        if (usermodel.password = password) {
+            res.status(200).send(true)
         }
         else {
-            res.send(false)
+            res.status(400).send(false)
         }
     }
     catch(err){
