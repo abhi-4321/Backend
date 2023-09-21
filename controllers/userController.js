@@ -7,7 +7,7 @@ const signin = asynchandler(async (req, res) => {
     const email = usermodel.email
 
     if(!email){
-        res..send(false)
+        res.send(false)
     }
 
     try {
