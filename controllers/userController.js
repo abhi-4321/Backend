@@ -13,7 +13,7 @@ const signin = asynchandler(async (req, res) => {
             res.status(400).send(false)
         }
         const password = user.password
-        if (usermodel.password = password) {
+        if (usermodel.password == password) {
             res.status(200).send(true)
         }
         else {
