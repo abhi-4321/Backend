@@ -6,6 +6,10 @@ const signin = asynchandler(async (req, res) => {
     const usermodel = req.body
     const email = usermodel.email
 
+    if(!email){
+        res.status(400).send("false")
+    }
+
     try {
         
         const user = await User.findOne({ email: email })
