@@ -10,15 +10,15 @@ const signin = asynchandler(async (req, res) => {
         
         const user = await User.findOne({ email: email })
         if (!user) {
-            res.status(200).send(false)
+            res.status(400).json({"res":false})
             return
         }
         const password = user.password
         if (usermodel.password == password) {
-            res.status(200).send(true)
+            res.status(200).json(user)
         }
         else {
-            res.status(200).send(false)
+            res.status(400).json({"res":false})
         }
     }
     catch(err){
@@ -48,6 +48,7 @@ const signup = asynchandler(async (req, res) => {
     });
     
 })
+
 
 
 

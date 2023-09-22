@@ -13,6 +13,7 @@ app.use(express.urlencoded({ exported: false }))
 
 app.use("/goals",goalroutes)
 app.use("/users",userroutes)
+
 app.get("/",(req,res)=>{
     res.status(200).send("Hello")
 })
